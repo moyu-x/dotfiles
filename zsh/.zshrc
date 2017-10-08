@@ -12,7 +12,7 @@ ZSH_THEME="ys"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
-# Uncomment the followinshell-scriptsg line to use hyphen-insensitive completion. Case
+# Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
@@ -80,13 +80,29 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-alias zshconfig="emacs ~/.zshrc"
-alias ohmyzsh="emacs ~/.oh-my-zsh"
-alias update_aur="sudo yaourt -Syu --aur"
+alias zshconfig="vim ~/.zshrc"
+alias ohmyzsh="vim ~/.oh-my-zsh"
 
-# docker hotkey config
-alias dockerkill="docker kill $(docker ps -a -q)"
-alias dockercleanc="docker rm $(docker ps -a -q)"
-alias dockercleani="docker rmi $(docker images -q -f dangling=true)"
-alias dockercleanall="'dockercleanc || true && dockercleani || true && docker rmi -f $(docker images -q)"
+# tilix config
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+    source /etc/profile.d/vte.sh
+fi
+
+# c compile flags
+export CC=clang
+export CXX=clang++
+
+# nodejs config
+export PATH="#HOME/.node_models/bin:$PATH"
+
+# python bin config
+export PATH="$HOME/.local/bin:$PATH"
+
+# docker config
+alias dockerkill='docker kill $(docker ps -a -q)'
+alias dockercleanc='docker rm $(docker ps -a -q)'
+alias dockercleani='docker rmi $(docker images -q -f dangling=true)'
+alias dockerclean='dockercleanc || true && dockercleani || true && docker rmi -f $(docker images -q)'
+
+# other config
+source $HOME/.my_config
