@@ -5,7 +5,6 @@ call plug#begin()
 
 Plug 'altercation/vim-colors-solarized'
 Plug 'tomasr/molokai'
-Plug 'nathanaelkane/vim-indent-guides'
 Plug 'scrooloose/nerdcommenter'
 Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -19,6 +18,8 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
+Plug 'Yggdroot/indentLine'
+Plug 'junegunn/vim-easy-align'
 
 call plug#end()
 
@@ -172,6 +173,14 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 " close NERDTree at close vim
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+" *****************************
+" NERDTree config
+" *****************************
+
+
+" *****************************
+" NERDTrimTrailingWhitespace config
+" *****************************
 " theme
 " solarized light
 " colorscheme solarized
