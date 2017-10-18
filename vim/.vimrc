@@ -20,6 +20,7 @@ Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Yggdroot/indentLine'
 Plug 'junegunn/vim-easy-align'
+Plug 'ekalinin/Dockerfile.vim'
 
 call plug#end()
 
@@ -44,9 +45,6 @@ set mouse=a
 " window
 set splitbelow
 set splitright
-
-" clipboard config
-set clipboard=unnamed
 
 " file type
 filetype on
@@ -75,7 +73,6 @@ set wildmenu
 
 " font config
 set guifont=Source\ Code\ Pro\ 15
-set nowrap
 
 " indent
 filetype indent on
