@@ -10,6 +10,14 @@
 
 在使用了[spf13](http://vim.spf13.com/)和[SpaceVim](http://spacevim.org/)的配置后，我认为一个轻便的vim配置才是适合我的。从某种意义上来说，这两个vim的配置都是特别出色的，但是因为在日常使用中发现其过于全面，并且在配置上来说过于麻烦，所以我才决定编写自己的vim配置，使其能完成我日常基本使用。
 
+### cmake
+
+如果需要使用c的补全的话需要使用`clang`进行编译，还需要`cmake`工具，所以在使用的时候需要在之前安装这两个工具，语言环境还需要`typescript`，`go`，`tern`
+
+### vim-plug
+
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 ## emacs 配置
 
 配置这个emacs只是为了学习使用emacs而已，这里使用的是[Spacemacs](http://spacemacs.org/)的配置。因为其本身是一个非常好的配置了，我只是在其中加入了一些layer的配置，基本上能完成日常的开发工作。

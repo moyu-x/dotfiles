@@ -14,7 +14,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'haya14busa/incsearch.vim'
 Plug 'dracula/vim'
 Plug 'mhinz/vim-signify'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang --go-completer  --js-completer --rust-completer' }
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
