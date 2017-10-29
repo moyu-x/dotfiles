@@ -82,6 +82,7 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # For a full list of active aliases, run `alias`.
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
+alias sourcezsh="source ~/.zshc"
 
 # tilix config
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
@@ -93,7 +94,7 @@ export CC=clang
 export CXX=clang++
 
 # nodejs config
-export PATH="#HOME/.node_models/bin:$PATH"
+export PATH="$HOME/.node_modules/bin:$PATH"
 
 # python bin config
 export PATH="$HOME/.local/bin:$PATH"
@@ -106,3 +107,5 @@ alias dockerclean='dockercleanc || true && dockercleani || true && docker rmi -f
 
 # other config
 source $HOME/.my_config
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
