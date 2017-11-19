@@ -9,6 +9,13 @@ export ZSH=/home/wjpworking/.oh-my-zsh
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="ys"
 
+# Set list of themes to load
+# Setting this variable when ZSH_THEME=random
+# cause zsh load theme from this variable instead of
+# looking in ~/.oh-my-zsh/themes/
+# An empty array have no effect
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -76,18 +83,14 @@ export ARCHFLAGS="-arch x86_64"
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-alias zshconfig="vim ~/.zshrc"
-alias ohmyzsh="vim ~/.oh-my-zsh"
-alias sourcezsh="source ~/.zshc"
-
 # tilix config
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
     source /etc/profile.d/vte.sh
 fi
+
+# the fuck
+eval $(thefuck --alias)
+eval $(thefuck --alias FUCK)
 
 # c compile flags
 export CC=clang
@@ -106,6 +109,19 @@ alias dockercleani='docker rmi $(docker images -q -f dangling=true)'
 alias dockerclean='dockercleanc || true && dockercleani || true && docker rmi -f $(docker images -q)'
 
 # other config
-source $HOME/.my_config
+source $HOME/.myconfig
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# fzf copnfig
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zshand themes. Aliases can be placed here, though oh-my-zsh
+
+# keymap
+alias zshconfig="vim ~/.zshrc"
+alias ohmyzsh="vim ~/.oh-my-zsh"
+alias chrome-zh="LANGUAGE=zh-CN /opt/google/chrome/chrome"
+
+# zsh plugin config
+export TERM=xterm-256color
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+eval `dircolors $HOME/FunProject/dircolors-solarized/dircolors.256dark`
+
