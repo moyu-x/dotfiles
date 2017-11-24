@@ -106,7 +106,7 @@ export PATH="$HOME/.local/bin:$PATH"
 alias dockerkill='docker kill $(docker ps -a -q)'
 alias dockercleanc='docker rm $(docker ps -a -q)'
 alias dockercleani='docker rmi $(docker images -q -f dangling=true)'
-alias dockerclean='dockercleanc || true && dockercleani || true && docker rmi -f $(docker images -q)'
+alias dockercleanall='dockercleanc || true && dockercleani || true && docker rmi -f $(docker images -q)'
 
 # other config
 source $HOME/.myconfig
