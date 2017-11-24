@@ -171,14 +171,8 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " *****************************
-" NERDTree config
+" Theme config
 " *****************************
-
-
-" *****************************
-" NERDTrimTrailingWhitespace config
-" *****************************
-" theme
 " solarized light
 " colorscheme solarized
 " set background=light
