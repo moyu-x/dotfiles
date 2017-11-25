@@ -123,5 +123,3 @@ alias chrome-zh="LANGUAGE=zh-CN /opt/google/chrome/chrome"
 export TERM=xterm-256color
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-eval `dircolors $HOME/FunProject/dircolors-solarized/dircolors.256dark`
-
