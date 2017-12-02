@@ -112,7 +112,7 @@ alias dockercleanall='dockercleanc || true && dockercleani || true && docker rmi
 source $HOME/.myconfig
 
 # fzf copnfig
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zshand themes. Aliases can be placed here, though oh-my-zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # keymap
 alias zshconfig="vim ~/.zshrc"
