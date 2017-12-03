@@ -5,18 +5,21 @@
     "editor.fontLigatures": true,
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 3000,
-    "workbench.colorTheme": "One Dark Pro",
+    "workbench.colorTheme": "Spacemacs - dark",
     "workbench.panel.location": "bottom",
     "files.eol": "\n",
     "terminal.integrated.fontFamily": "Source Code Pro",
     "python.linting.flake8Enabled": true,
     "python.linting.pylintEnabled": false,
     "python.formatting.provider": "yapf",
-    "python.formatting.yapfPath": "/home/wjpworking/.local/bin/yapf",
     "editor.rulers": [
         80,
         120
     ],
     "terminal.integrated.fontSize": 15,
-    "workbench.iconTheme": "vscode-great-icons"
+    "workbench.iconTheme": "vscode-great-icons",
+    "markdownlint.config": {
+        "MD013": false,
+        "MD029": false
+      }
 }

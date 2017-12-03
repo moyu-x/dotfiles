@@ -118,6 +118,7 @@ source $HOME/.myconfig
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias chrome-zh="LANGUAGE=zh-CN /opt/google/chrome/chrome"
+alias minecraft="cd $HOME/Software && java -jar $HOME/Software/HMCL-2.5.3.88.jar"
 
 # zsh plugin config
 export TERM=xterm-256color
