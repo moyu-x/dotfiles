@@ -5,7 +5,6 @@
     "editor.fontLigatures": true,
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 3000,
-    "workbench.panel.location": "bottom",
     "files.eol": "\n",
     "terminal.integrated.fontFamily": "Source Code Pro",
     "python.linting.flake8Enabled": true,
@@ -23,5 +22,14 @@
     },
     "workbench.colorTheme": "Spacemacs - dark",
     "todohighlight.isEnable": true,
-    "python.autoComplete.addBrackets": true
+    "python.autoComplete.addBrackets": true,
+    "git.autofetch": true,
+    "cSpell.userWords": [
+        "getcwd",
+        "mongoengine",
+        "wechat",
+        "xlsx",
+        "yapf"
+    ],
+    "vsicons.projectDetection.autoReload": true
 }
