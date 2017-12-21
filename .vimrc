@@ -21,6 +21,8 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'Yggdroot/indentLine'
 Plug 'junegunn/vim-easy-align'
 Plug 'ekalinin/Dockerfile.vim'
+Plug 'posva/vim-vue'
+Plug 'flazz/vim-colorschemes'
 
 call plug#end()
 
@@ -185,5 +187,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " let g:rehash256 = 1
 
 " dracula theme
-color dracula
+" color dracula
+
+" colorscheme
+colorscheme onedark
 
