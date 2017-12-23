@@ -3,8 +3,6 @@
 " *****************************
 call plug#begin()
 
-Plug 'altercation/vim-colors-solarized'
-Plug 'tomasr/molokai'
 Plug 'scrooloose/nerdcommenter'
 Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -12,7 +10,6 @@ Plug 'w0rp/ale'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'haya14busa/incsearch.vim'
-Plug 'dracula/vim'
 Plug 'mhinz/vim-signify'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang --go-completer  --js-completer --rust-completer' }
 Plug 'scrooloose/nerdtree'
@@ -31,9 +28,6 @@ call plug#end()
 " *****************************
 " <Leader> key set
 let mapleader = "\<Space>"
-
-" autoload config
-autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
 " encoding config
 set encoding=utf-8
@@ -83,13 +77,17 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 
+" *****************************
 " indent plugin config
+" *****************************
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_start_level=1
 let g:indent_guides_size=1
 :nmap <silent> <Leader>i <Plug>IndentGuidesToggle
 
-" code document
+" *****************************
+" nerdcommenter config
+" *****************************
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
 " Use compact syntax for prettified multi-line comments
@@ -159,7 +157,7 @@ let g:ycm_complete_in_strings = 1
 " NERDTree config
 " *****************************
 " hot-key config
-map <Leader>ft :NERDTreeToggle<CR>
+map <Leader>nt :NERDTreeToggle<CR>
 
 " automatically open NERDTree
 autocmd StdinReadPre * let s:std_in=1
@@ -172,23 +170,13 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 " close NERDTree at close vim
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+" NERDTree symbol
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+
 " *****************************
 " Theme config
 " *****************************
-" solarized light
-" colorscheme solarized
-" set background=light
-" let g:solarized_termcolors=256
-
-" molokai
-" colorscheme molokai
-" set background=dark
-" let g:molokai_original = 1
-" let g:rehash256 = 1
-
-" dracula theme
-" color dracula
-
 " colorscheme
-colorscheme onedark
+colorscheme atom
 
