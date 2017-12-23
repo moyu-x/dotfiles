@@ -20,6 +20,12 @@ Plug 'junegunn/vim-easy-align'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'posva/vim-vue'
 Plug 'flazz/vim-colorschemes'
+Plug 'majutsushi/tagbar'
+Plug 'luochen1990/rainbow'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
+Plug 'editorconfig/editorconfig-vim'
+Plug 'fisadev/vim-isort'
 
 call plug#end()
 
@@ -77,6 +83,9 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 
+" other setting
+set noswapfile
+
 " *****************************
 " indent plugin config
 " *****************************
@@ -123,7 +132,6 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 " *****************************
 let g:incsearch#auto_nohlsearch = 1
 
-
 " *****************************
 " YcmCompleterMe config
 " *****************************
@@ -141,8 +149,8 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " 默认tab、s-tab和自动补全冲突
-let g:ycm_key_list_select_completion = ['<TAB>', '<c-n>', '<Down>'] 
-let g:ycm_key_list_previous_completion = ['<S-TAB>', '<c-p>', '<Up>'] 
+let g:ycm_key_list_select_completion = ['<TAB>', '<c-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<S-TAB>', '<c-p>', '<Up>']
 let g:ycm_auto_trigger = 1
 
 " other config
@@ -173,6 +181,27 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " NERDTree symbol
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
+
+" *****************************
+" rainbow config
+" *****************************
+let g:rainbow_active = 1
+
+" *****************************
+" vim-better-whitespace config
+" *****************************
+autocmd FileType <desired_filetypes> autocmd BufEnter <buffer> EnableStripWhitespaceOnSave
+
+" *****************************
+" yapf config
+" *****************************
+map <Leader>y :call yapf#YAPF()<cr>
+
+" *****************************
+" vim isort config
+" *****************************
+let g:vim_isort_map = '<Leader>is'
+let g:vim_isort_python_version = 'python3'
 
 " *****************************
 " Theme config
