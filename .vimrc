@@ -26,6 +26,9 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'fisadev/vim-isort'
+Plug 'mattn/emmet-vim'
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
@@ -202,6 +205,12 @@ map <Leader>y :call yapf#YAPF()<cr>
 " *****************************
 let g:vim_isort_map = '<Leader>is'
 let g:vim_isort_python_version = 'python3'
+
+" *****************************
+" emment config
+" *****************************
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
 
 " *****************************
 " Theme config
