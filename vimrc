@@ -29,6 +29,7 @@ Plug 'fisadev/vim-isort'
 Plug 'mattn/emmet-vim'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'tpope/vim-fugitive'
+Plug 'SirVer/ultisnips'
 
 call plug#end()
 
@@ -211,6 +212,13 @@ let g:vim_isort_python_version = 'python3'
 " *****************************
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
+
+" *****************************
+" UltiSnips config
+" *****************************
+let g:UltiSnipsExpandTrigger="<c-c>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " *****************************
 " Theme config
