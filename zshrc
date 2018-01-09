@@ -107,6 +107,7 @@ alias dockerkill='docker kill $(docker ps -a -q)'
 alias dockercleanc='docker rm $(docker ps -a -q)'
 alias dockercleani='docker rmi $(docker images -q -f dangling=true)'
 alias dockercleanall='dockercleanc || true && dockercleani || true && docker rmi -f $(docker images -q)'
+alias pip_require='pip install --user -r requirements.txt'
 
 # other config
 source $HOME/.myconfig
