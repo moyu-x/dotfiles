@@ -58,8 +58,7 @@ export UPDATE_ZSH_DAYS=3
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git, archlinux, autojump, command-not-found, docker, git-flow,
-         ng, node, npm, pip, python)
+plugins=(git, docker, archlinux, common-aliases, git-extras)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -107,7 +106,6 @@ alias dockerkill='docker kill $(docker ps -a -q)'
 alias dockercleanc='docker rm $(docker ps -a -q)'
 alias dockercleani='docker rmi $(docker images -q -f dangling=true)'
 alias dockercleanall='dockercleanc || true && dockercleani || true && docker rmi -f $(docker images -q)'
-alias pip_require='pip install --user -r requirements.txt'
 
 # other config
 source $HOME/.myconfig
@@ -119,7 +117,7 @@ source $HOME/.myconfig
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias chrome-zh="LANGUAGE=zh-CN /opt/google/chrome/chrome"
-alias minecraft="cd $HOME/Software && java -jar $HOME/Software/HMCL-2.5.3.88.jar"
+alias pip_require='pip install --user -r requirements.txt'
 
 # zsh plugin config
 export TERM=xterm-256color
