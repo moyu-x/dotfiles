@@ -169,7 +169,7 @@ let g:ycm_complete_in_strings = 1
 " NERDTree config
 " *****************************
 " hot-key config
-map <Leader>nt :NERDTreeToggle<CR>
+map <Leader>ft :NERDTreeToggle<CR>
 
 " automatically open NERDTree
 autocmd StdinReadPre * let s:std_in=1

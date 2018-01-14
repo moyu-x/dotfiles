@@ -49,7 +49,7 @@ export UPDATE_ZSH_DAYS=3
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="yyyy-mm-dd"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -58,7 +58,7 @@ export UPDATE_ZSH_DAYS=3
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git, docker, common-aliases, git-extrasi, archlinux)
+plugins=(git, docker, common-aliases, git-extras, archlinux)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -114,8 +114,8 @@ source $HOME/.myconfig
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # keymap
-alias zshconfig="vim ~/.zshrc"
-alias ohmyzsh="vim ~/.oh-my-zsh"
+alias zshconfig="$EDITOR ~/.zshrc"
+alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 alias chrome-zh="LANGUAGE=zh-CN /opt/google/chrome/chrome"
 alias pip_require='pip install --user -r requirements.txt'
 
@@ -123,3 +123,7 @@ alias pip_require='pip install --user -r requirements.txt'
 export TERM=xterm-256color
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# default editor
+export EDITOR='vim'
+
