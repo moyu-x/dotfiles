@@ -32,3 +32,9 @@ let g:spacevim_guifont = 'Souece\ Code\ Pro\ for\ Powerline\ 15'
 let g:spacevim_enable_neomake = 0
 let g:spacevim_enable_ale = 1
 
+" default indent
+let g:spacevim_defatult_indent = 4
+let g:spacevim_max_column = 80
+let g:spacevim_enable_cursorcolumn = 1
+let g:spacevim_help_language = 'cn'
+
