@@ -30,6 +30,9 @@ Plug 'mattn/emmet-vim'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'tpope/vim-fugitive'
 Plug 'SirVer/ultisnips'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'ervandew/supertab'
+Plug 'plasticboy/vim-markdown'
 
 call plug#end()
 
@@ -90,12 +93,15 @@ set softtabstop=4
 " other setting
 set noswapfile
 
+" autoread
+set autoread
+
 " *****************************
 " indent plugin config
 " *****************************
-let g:indent_guides_enable_on_vim_startup=1
-let g:indent_guides_start_level=1
-let g:indent_guides_size=1
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_start_level = 1
+let g:indent_guides_size = 1
 :nmap <silent> <Leader>i <Plug>IndentGuidesToggle
 
 " *****************************
@@ -141,7 +147,7 @@ let g:incsearch#auto_nohlsearch = 1
 " *****************************
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_python_binary_path = '/usr/bin/python3'
-let g:ycm_server_python_interpreter='/usr/bin/python3'
+let g:ycm_server_python_interpreter = '/usr/bin/python3'
 
 " auto complecation
 set completeopt=longest,menu
@@ -158,10 +164,10 @@ let g:ycm_key_list_previous_completion = ['<S-TAB>', '<c-p>', '<Up>']
 let g:ycm_auto_trigger = 1
 
 " other config
-let g:ycm_collect_identifiers_from_tags_files=1
-let g:ycm_min_num_of_chars_for_completion=1
-let g:ycm_cache_omnifunc=0
-let g:ycm_seed_identifiers_with_syntax=1
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_min_num_of_chars_for_completion = 1
+let g:ycm_cache_omnifunc = 0
+let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_complete_in_comments = 1
 let g:ycm_complete_in_strings = 1
 
@@ -172,11 +178,11 @@ let g:ycm_complete_in_strings = 1
 map <Leader>ft :NERDTreeToggle<CR>
 
 " automatically open NERDTree
-autocmd StdinReadPre * let s:std_in=1
+autocmd StdinReadPre * let s:std_in = 1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " open NERDTree automatically at open folder
-autocmd StdinReadPre * let s:std_in=1
+autocmd StdinReadPre * let s:std_in = 1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
 " close NERDTree at close vim
@@ -216,13 +222,26 @@ autocmd FileType html,css EmmetInstall
 " *****************************
 " UltiSnips config
 " *****************************
-let g:UltiSnipsExpandTrigger="<c-c>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsExpandTrigger = "<c-c>"
+let g:UltiSnipsJumpForwardTrigger = "<c-b>"
+let g:UltiSnipsJumpBackwardTrigger = "<c-z>"
 
 " *****************************
 " Theme config
 " *****************************
 " colorscheme
 colorscheme atom
+
+" *****************************
+" Markdown config
+" *****************************
+let g:vim_markdown_toc_autofit = 1
+let g:vim_markdown_math = 1
+let g:vim_markdown_autowrite = 1
+let g:vim_markdown_folding_disabled = 1
+
+" *****************************
+" EasyAlign config
+" *****************************
+nmap <Leader>ga <Plug>(EasyAlign)
 
