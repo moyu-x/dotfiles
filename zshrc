@@ -117,7 +117,8 @@ source $HOME/.myconfig
 alias zshconfig="$EDITOR ~/.zshrc"
 alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 alias chrome-zh="LANGUAGE=zh-CN /opt/google/chrome/chrome"
-alias pip_require='pip install --user -r requirements.txt'
+alias pip_require="pip install --user -r requirements.txt"
+alias vimrc="$EDITOR $HOME/.vimrc"
 
 # zsh plugin config
 export TERM=xterm-256color
@@ -127,3 +128,6 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 # default editor
 export EDITOR='vim'
 
+# ruby config
+export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+export GEM_HOME=$HOME/.gem
