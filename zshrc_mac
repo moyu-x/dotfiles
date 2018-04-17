@@ -63,6 +63,9 @@ plugins=(
   docker
   git-extras
   common-aliases
+  mvn
+  gradle
+  osx
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -118,8 +121,8 @@ export PATH="/usr/local/sbin:$PATH"
 
 # 键位映射
 # brew
-alias brew_update='brew update || brew upgrade || brew cask upgrade'
-alias brew_clean='brew cleanup || brew cask clean up'
+alias brew_update='brew update || true && brew upgrade || true && brew cask upgrade'
+alias brew_clean='brew cleanup || true && brew cask cleanup'
 
 # docker
 alias dockerkill='docker kill $(docker ps -a -q)'
