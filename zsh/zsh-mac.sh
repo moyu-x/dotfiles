@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/wangmo/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -90,7 +90,8 @@ export LANG=en_US.UTF-8
 export ARCHFLAGS="-arch x86_64"
 
 # homebrew config
-export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
+eval $(/usr/local/Homebrew/bin/brew shellenv) #ckbrew
 export PATH="/usr/local/sbin:$PATH"
 
 # personal aliases
