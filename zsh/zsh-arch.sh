@@ -113,3 +113,6 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 # common config
 [ -f $HOME/.dotfiles/zsh/common.sh ] && source $HOME/.dotfiles/zsh/common.sh
+
+# doas config
+alias sudo='doas'
