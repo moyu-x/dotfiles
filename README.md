@@ -47,6 +47,7 @@
 -   使用 [nvs](https://github.com/jasongin/nvs) 来管理`Node.js`的版本
 -   使用 [lazygit](https://github.com/jesseduffield/lazygit) 和 [tips](https://github.com/jonas/tig) 一起替换原有命令行中`git`操作
 -   使用 [ack](https://beyondgrep.com/) 来进行文件夹下正文搜索，比`grep`友好
+-   使用 [doas](https://github.com/Duncaen/OpenDoas) 来替换`sudo`，解决`sudo`配置和使用上的一些bug
 
 ## Git 配置
 
@@ -60,39 +61,12 @@ git config --global core.autocrlf true
 git config --global core.autocrlf input
 ```
 
-## 一些工具的安装
-
-### efm-langserver
-
-```bash
-go get github.com/mattn/efm-langserver
-```
-
-### Git cz
-
-直接在每次使用的时候执行一下命令就行：
-
-```bash
-npx git-cz
-```
-
-### ack
-
-```bash
-brew install ack
-```
-
-### zoxide
-
-```bash
-cargo install zoxide -f
-```
-
 ## 其他
 
 ### zsh 插件
 
 1. [fzf-tab](https://github.com/Aloxaf/fzf-tab)
+2. [https://github.com/Duncaen/OpenDoas](https://github.com/zsh-users/zsh-syntax-highlighting)
 
 ### 工具
 
@@ -100,8 +74,5 @@ cargo install zoxide -f
 
 ### FAQ
 
-1. 出现`Cannot find the fakeroot binary.`的错误
+1. 出现`Cannot find the fakeroot binary.`，这是因为系统中缺少基础的开发环境，执行命令`sudo pacman -S base-devel`可以解决
 
-    这是因为系统中缺少基础的开发环境，执行命令`sudo pacman -S base-devel`可以解决
-
-2. 在

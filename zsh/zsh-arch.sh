@@ -114,5 +114,8 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 # common config
 [ -f $HOME/.dotfiles/zsh/common.sh ] && source $HOME/.dotfiles/zsh/common.sh
 
-# doas config
+# 使用 doas 替代 sudo
 alias sudo='doas'
+
+# 默认的编辑器
+export EDITOR='nvim'
