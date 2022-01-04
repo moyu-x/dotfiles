@@ -68,7 +68,7 @@ ZSH_THEME="ys"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git macos extract fzf-tab)
+plugins=(git macos extract fzf-tab iterm2)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -103,3 +103,4 @@ export PATH="/usr/local/sbin:$PATH"
 # locale config
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+
