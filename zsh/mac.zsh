@@ -87,7 +87,6 @@ fi
 export ARCHFLAGS="-arch x86_64"
 
 # homebrew config
-export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 eval $(/usr/local/Homebrew/bin/brew shellenv) #ckbrew
 export PATH="/usr/local/sbin:$PATH"
 
@@ -100,7 +99,13 @@ export PATH="/usr/local/sbin:$PATH"
 # common config
 [ -f $HOME/.dotfiles/zsh/common.sh ] && source $HOME/.dotfiles/zsh/common.sh
 
-# locale config
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
+# jenv config
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
 
+export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git"
+export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles"
+export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.ustc.edu.cn/homebrew-core.git"
+
+export LC_ALL=en_US.UTF-8
+export LANG=zh_CN.UTF-8
