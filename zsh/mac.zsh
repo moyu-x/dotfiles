@@ -68,7 +68,7 @@ ZSH_THEME="ys"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=( git macos extract fzf-tab iterm2 )
+plugins=( git macos extract fzf-tab iterm2 zsh-autosuggestions ag fd fzf golang)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -91,17 +91,13 @@ eval $(/usr/local/Homebrew/bin/brew shellenv) #ckbrew
 export PATH="/usr/local/sbin:$PATH"
 
 # personal aliases
-[ -f $HOME/.dotfiles/zsh/keymap.sh ] && source $HOME/.dotfiles/zsh/keymap.sh
+[ -f $HOME/.dotfiles/zsh/keymap.zsh ] && source $HOME/.dotfiles/zsh/keymap.zsh
 
 # custom config
 [ -f ~/.custom.sh ] && source ~/.custom.sh
 
 # common config
 [ -f $HOME/.dotfiles/zsh/common.sh ] && source $HOME/.dotfiles/zsh/common.sh
-
-# jenv config
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
 
 export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git"
 export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles"
