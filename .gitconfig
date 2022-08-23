@@ -3,5 +3,4 @@
 	name = idwangmo
 [core]
 	editor = nvim
-[safe]
-	directory = /usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask
+	ignoreCase = false
