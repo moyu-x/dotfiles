@@ -82,21 +82,21 @@ source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='mvim'
+fi
 
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
 
 # personal aliases
-[ -f $HOME/.dotfiles/zsh/keymap.sh ] && source $HOME/.dotfiles/zsh/keymap.sh
+[ -f $HOME/.dotfiles/zsh/keymap.zsh ] && source $HOME/.dotfiles/zsh/keymap.zsh
 
 # custom config
 [ -f ~/.custom.sh ] && source ~/.custom.sh
 
 # common config
-[ -f $HOME/.dotfiles/zsh/common.sh ] && source $HOME/.dotfiles/zsh/common.sh
+[ -f $HOME/.dotfiles/zsh/common.zsh ] && source $HOME/.dotfiles/zsh/common.zsh
 
