@@ -105,3 +105,5 @@ export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.ustc.edu.cn/homebrew-core.git"
 
 export LC_ALL=en_US.UTF-8
 export LANG=zh_CN.UTF-8
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
