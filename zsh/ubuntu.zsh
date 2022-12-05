@@ -68,9 +68,11 @@ ZSH_THEME="ys"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git
+plugins=(
+    git
 	fzf-tab
-	ubuntu)
+	ubuntu
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -95,7 +97,7 @@ export ARCHFLAGS="-arch x86_64"
 [ -f $HOME/.dotfiles/zsh/keymap.zsh ] && source $HOME/.dotfiles/zsh/keymap.zsh
 
 # custom config
-[ -f ~/.custom.sh ] && source ~/.custom.sh
+[ -f ~/.custom.zsh ] && source ~/.custom.zsh
 
 # common config
 [ -f $HOME/.dotfiles/zsh/common.zsh ] && source $HOME/.dotfiles/zsh/common.zsh
