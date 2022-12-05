@@ -3,7 +3,6 @@ if status is-interactive
 end
 
 set -x PATH $HOME/.local/bin $HOME/.cargo/bin $HOME/go/bin $PATH
-set -x GOPROXY https://proxy.golang.com.cn,direct
 set -x HOMEBREW_BREW_GIT_REMOTE "https://mirrors.ustc.edu.cn/brew.git"
 set -x HOMEBREW_CORE_GIT_REMOTE "https://mirrors.ustc.edu.cn/homebrew-core.git"
 set -x HOMEBREW_BOTTLE_DOMAIN "https://mirrors.ustc.edu.cn/homebrew-bottles"
@@ -14,7 +13,14 @@ set -x LANG zh_CN.UTF-8
 alias ls exa
 alias vim nvim
 
-starship init fish | source
+function tid
+    ssh-copy-id root@10.0.$argv
+end
+
+function th
+    ssh root@10.0.$argv
+end
 
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
+oh-my-posh init fish --config ~/.config/fish/omp.json | source
 

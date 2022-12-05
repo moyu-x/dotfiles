@@ -94,16 +94,30 @@ export PATH="/usr/local/sbin:$PATH"
 [ -f $HOME/.dotfiles/zsh/keymap.zsh ] && source $HOME/.dotfiles/zsh/keymap.zsh
 
 # custom config
-[ -f ~/.custom.sh ] && source ~/.custom.sh
+[ -f ~/.custom.zsh ] && source ~/.custom.zsh
 
 # common config
-[ -f $HOME/.dotfiles/zsh/common.sh ] && source $HOME/.dotfiles/zsh/common.sh
+[ -f $HOME/.dotfiles/zsh/common.zsh ] && source $HOME/.dotfiles/zsh/common.zsh
 
 export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git"
 export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles"
 export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.ustc.edu.cn/homebrew-core.git"
 
+# close homebrew autoupdate
+export HOMEBREW_NO_AUTO_UPDATE=1
+
+# iterm2 lang setting
 export LC_ALL=en_US.UTF-8
 export LANG=zh_CN.UTF-8
 
+# fzf config
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# lima compltetion setting
+[ -f $HOME/.dotfiles/zsh/completion/lima.zsh ] && source $HOME/.dotfiles/zsh/completion/lima.zsh
+
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/ys.omp.json)"
+
+alias gf=gf
