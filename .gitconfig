@@ -5,8 +5,23 @@
 	editor = nvim
 	ignoreCase = false
 	autocrlf = input
+	pager = delta
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
+[pull]
+	rebase = false
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true    # use n and N to move between diff sections
+	light = false
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
