@@ -88,4 +88,5 @@ export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.ustc.edu.cn/homebrew-core.git"
 # close homebrew autoupdate
 export HOMEBREW_NO_AUTO_UPDATE=1
 
-source /Users/moyu/.config/broot/launcher/bash/br
+source $HOME/.config/broot/launcher/bash/br
+
