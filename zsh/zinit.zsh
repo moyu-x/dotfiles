@@ -32,6 +32,8 @@ zinit light-mode for \
 ### End of Zinit's installer chunk
 
 ### this begin custom config
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
+
 autoload -Uz compinit; compinit
 zinit light romkatv/powerlevel10k
 zinit load Aloxaf/fzf-tab
