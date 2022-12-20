@@ -62,6 +62,10 @@ alias tree="broot"
 alias ack="ag"
 alias cd="z"
 alias curl="curlie"
+alias gobl="GOOS=linux  GOARCH=amd64  go build"
+
+# go alias
+alias gor="go run"
 
 # local sofware bin
 export PATH="$PATH:$HOME/.local/bin"
@@ -92,3 +96,10 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 
 source $HOME/.config/broot/launcher/bash/br
 
+rsmvn() {
+	mvn package -DskipTests -U
+	rsync -azvhP target/$1.jar root@10.0.$2:/opt/nta-light/$1/$1.jar
+	ssh root@10.0.$2 "ambot-service restart $1"
+}
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
