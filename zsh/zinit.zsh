@@ -30,11 +30,6 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 zinit light Aloxaf/fzf-tab
 
-# Homebrew config
-export HOMEBREW_NO_AUTO_UPDATE=1
-export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git"
-export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles"
-export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.ustc.edu.cn/homebrew-core.git"
 
 # common config
 export PATH="/usr/local/sbin:$PATH"
@@ -42,13 +37,18 @@ export PATH="/usr/local/sbin:$PATH"
 # oh-my-posh
 if [[ `uname` == "Darwin" ]]; then
     eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/powerlevel10k_rainbow.omp.json)"
+    # jenv
+    export PATH="$HOME/.jenv/bin:$PATH"
+    eval "$(jenv init -)"
+    # Homebrew config
+    export HOMEBREW_NO_AUTO_UPDATE=1
+    export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git"
+    export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles"
+    export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.ustc.edu.cn/homebrew-core.git"
 else
     eval "$(oh-my-posh init zsh --config $HOME/.powerlevel10k_rainbow.omp.json)"
 fi
 
-# jenv
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
 
 # alias
 alias zshconfig="nvim ~/.zshrc"
@@ -56,7 +56,7 @@ alias nvimconfig='nvim ~/.config/nvim/init.vim'
 alias ls="exa"
 alias vim="nvim"
 alias tid='tid() { ssh-copy-id root@10.0.$1 };tid'
-alias th='th() { ssh root@10.0.$1 };th'
+alias th='th() { ssh -i ~/.ssh/id_rsa_th root@10.0.$1 };th'
 alias rsync="rsync -azvhP"
 alias find="fd"
 alias grep="rg"
