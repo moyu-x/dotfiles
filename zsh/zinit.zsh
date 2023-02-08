@@ -30,9 +30,15 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 zinit light Aloxaf/fzf-tab
 
+# zsh config
+export HISTFILE=~/.zsh_history
+export HISTFILESIZE=1024000
+export HISTSIZE=100000
+setopt appendhistory
+export HISTTIMEFORMAT="[%F %T] "
 
 # common config
-export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/sbin:$HOME/.local/bin:$HOME/go/bin:$PATH"
 
 # oh-my-posh
 if [[ `uname` == "Darwin" ]]; then
@@ -46,7 +52,7 @@ if [[ `uname` == "Darwin" ]]; then
     export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles"
     export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.ustc.edu.cn/homebrew-core.git"
 else
-    eval "$(oh-my-posh init zsh --config $HOME/.powerlevel10k_rainbow.omp.json)"
+    eval "$(oh-my-posh init zsh --config $HOME/.poshthemes/powerlevel10k_rainbow.omp.json)"
 fi
 
 
@@ -56,7 +62,6 @@ alias nvimconfig='nvim ~/.config/nvim/init.vim'
 alias ls="exa"
 alias vim="nvim"
 alias tid='tid() { ssh-copy-id root@10.0.$1 };tid'
-alias th='th() { ssh -i ~/.ssh/id_rsa_th root@10.0.$1 };th'
 alias rsync="rsync -azvhP"
 alias find="fd"
 alias grep="rg"
