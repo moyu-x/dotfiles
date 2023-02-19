@@ -30,19 +30,11 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 zinit light Aloxaf/fzf-tab
 
-# zsh config
-export HISTFILE=~/.zsh_history
-export HISTFILESIZE=1024000
-export HISTSIZE=100000
-setopt appendhistory
-export HISTTIMEFORMAT="[%F %T] "
-
 # common config
 export PATH="/usr/local/sbin:$HOME/.local/bin:$HOME/go/bin:$PATH"
 
 # oh-my-posh
 if [[ `uname` == "Darwin" ]]; then
-    eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/powerlevel10k_rainbow.omp.json)"
     # jenv
     export PATH="$HOME/.jenv/bin:$PATH"
     eval "$(jenv init -)"
@@ -51,9 +43,11 @@ if [[ `uname` == "Darwin" ]]; then
     export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git"
     export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles"
     export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.ustc.edu.cn/homebrew-core.git"
-else
-    eval "$(oh-my-posh init zsh --config $HOME/.poshthemes/powerlevel10k_rainbow.omp.json)"
+    test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
 fi
+
+# starship config
+eval "$(starship init zsh)"
 
 
 # alias
@@ -72,4 +66,6 @@ alias tree="broot"
 alias ack="ag"
 alias curl="curlie"
 alias gobl="GOOS=linux  GOARCH=amd64  go build"
+
+
 
