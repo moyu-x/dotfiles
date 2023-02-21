@@ -70,8 +70,10 @@ ZSH_THEME="ys"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     git
-	fzf-tab
-	ubuntu
+    fzf-tab
+    ubuntu
+    fast-syntax-highlighting
+    zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
