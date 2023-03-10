@@ -36,17 +36,24 @@ export EDITOR=nvim
 
 # oh-my-posh
 if [[ `uname` == "Darwin" ]]; then
-    # jenv
-    export PATH="$HOME/.jenv/bin:$PATH"
-    eval "$(jenv init -)"
     # Homebrew config
     export HOMEBREW_NO_AUTO_UPDATE=1
     export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git"
     export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles"
+    export HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api"
     export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.ustc.edu.cn/homebrew-core.git"
     test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
     # starship config
     eval "$(starship init zsh)"
+    # Java Home
+    export JAVA_HOME=$(/usr/libexec/java_home -v8)
+    export JAVA_8_HOME=$(/usr/libexec/java_home -v8)
+    export JAVA_11_HOME=$(/usr/libexec/java_home -v11)
+    export JAVA_17_HOME=$(/usr/libexec/java_home -v17)
+
+    alias java8='export JAVA_HOME=$JAVA_8_HOME'
+    alias java11='export JAVA_HOME=$JAVA_11_HOME'
+    alias java17='export JAVA_HOME=$JAVA_17_HOME'
 else
     eval "$(oh-my-posh init zsh --config $HOME/.poshthemes/powerlevel10k_rainbow.omp.json)"
 fi
@@ -63,6 +70,7 @@ alias nvimconfig='nvim ~/.config/nvim/init.vim'
 alias ls="exa"
 alias vim="nvim"
 alias tid='tid() { ssh-copy-id root@10.0.$1 };tid'
+alias th='th() { ssh root@10.0.$1 };th'
 alias rsync="rsync -azvhP"
 alias find="fd"
 alias grep="rg"
