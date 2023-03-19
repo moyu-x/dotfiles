@@ -31,7 +31,7 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=
 zinit light Aloxaf/fzf-tab
 
 # common config
-export PATH="/usr/local/sbin:$HOME/.local/bin:$HOME/go/bin:$PATH"
+export PATH="/usr/local/sbin:$HOME/.local/bin:$HOME/go/bin:/usr/local/opt/node@18/bin:$PATH"
 export EDITOR=nvim
 
 # oh-my-posh
@@ -79,7 +79,6 @@ alias du="dust"
 alias df="duf"
 alias tree="broot"
 alias ack="ag"
-alias curl="curlie"
 alias gobl="GOOS=linux  GOARCH=amd64  go build"
 alias mvncp="mvn clean package -DskipTests"
 alias gcam="git commit -am"
@@ -91,4 +90,24 @@ alias gs="git status"
 alias gd="git diff"
 alias gst="git status"
 alias sourcezsh="source $HOME/.zshrc"
+alias curl="curlie"
 
+# node config
+export LDFLAGS="-L/usr/local/opt/node@18/lib"
+export CPPFLAGS="-I/usr/local/opt/node@18/include"
+
+# proxy config
+useproxy () {
+  export http_proxy="http://127.0.0.1:7890"
+  export https_proxy="http://127.0.0.1:7890"
+  export all_proxy="socks5://127.0.0.1:7890"
+  echo "Proxy on"
+}
+
+# where noproxy
+noproxy () {
+  unset http_proxy
+  unset https_proxy
+  unset all_proxy
+  echo "Proxy off"
+}

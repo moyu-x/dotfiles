@@ -3,8 +3,6 @@
 	email = idwangmo@protonmail.com
 [core]
         editor = nvim
-[url "https://kgithub.com/"]
-	insteadOf = https://github.com/
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
