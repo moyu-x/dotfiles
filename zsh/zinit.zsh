@@ -54,6 +54,10 @@ if [[ `uname` == "Darwin" ]]; then
     alias java8='export JAVA_HOME=$JAVA_8_HOME'
     alias java11='export JAVA_HOME=$JAVA_11_HOME'
     alias java17='export JAVA_HOME=$JAVA_17_HOME'
+
+    # node config
+    export LDFLAGS="-L/usr/local/opt/node@18/lib"
+    export CPPFLAGS="-I/usr/local/opt/node@18/include"
 else
     eval "$(oh-my-posh init zsh --config $HOME/.poshthemes/powerlevel10k_rainbow.omp.json)"
 fi
@@ -70,7 +74,7 @@ alias nvimconfig='nvim ~/.config/nvim/init.vim'
 alias ls="exa"
 alias vim="nvim"
 alias tid='tid() { ssh-copy-id root@10.0.$1 };tid'
-alias th='th() { ssh root@10.0.$1 };th'
+alias th='th() { ssh root@10.0.$1 -t /bin/fish };th'
 alias rsync="rsync -azvhP"
 alias find="fd"
 alias grep="rg"
@@ -91,10 +95,6 @@ alias gd="git diff"
 alias gst="git status"
 alias sourcezsh="source $HOME/.zshrc"
 alias curl="curlie"
-
-# node config
-export LDFLAGS="-L/usr/local/opt/node@18/lib"
-export CPPFLAGS="-I/usr/local/opt/node@18/include"
 
 # proxy config
 useproxy () {
