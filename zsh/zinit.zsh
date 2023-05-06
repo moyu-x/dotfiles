@@ -46,8 +46,8 @@ if [[ `uname` == "Darwin" ]]; then
     # starship config
     eval "$(starship init zsh)"
     # Java Home
-    export JAVA_HOME=$(/usr/libexec/java_home -v8)
-    export JAVA_8_HOME=$(/usr/libexec/java_home -v8)
+    export JAVA_HOME=$(/usr/libexec/java_home -v1.8)
+    export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
     export JAVA_11_HOME=$(/usr/libexec/java_home -v11)
     export JAVA_17_HOME=$(/usr/libexec/java_home -v17)
 
@@ -58,6 +58,9 @@ if [[ `uname` == "Darwin" ]]; then
     # node config
     export LDFLAGS="-L/usr/local/opt/node@18/lib"
     export CPPFLAGS="-I/usr/local/opt/node@18/include"
+
+    # other config
+    export PATH="$PATH:/Applications/IntelliJ IDEA CE.app/Contents/MacOS"
 else
     eval "$(oh-my-posh init zsh --config $HOME/.poshthemes/powerlevel10k_rainbow.omp.json)"
 fi
@@ -65,16 +68,16 @@ fi
 
 # zsh history config
 export HISTFILE=~/.zsh_history
-export HISTSIZE=1000
-export SAVEHIST=1000
+export HISTSIZE=10000
+export SAVEHIST=10000
 
 # alias
 alias zshconfig="nvim ~/.zshrc"
 alias nvimconfig='nvim ~/.config/nvim/init.vim'
-alias ls="exa"
+alias ls="lsd"
 alias vim="nvim"
 alias tid='tid() { ssh-copy-id root@10.0.$1 };tid'
-alias th='th() { ssh root@10.0.$1 -t /bin/fish };th'
+alias th='th() { trzsz -d ssh root@10.0.$1 };th'
 alias rsync="rsync -azvhP"
 alias find="fd"
 alias grep="rg"
@@ -93,6 +96,7 @@ alias gph="git push"
 alias gs="git status"
 alias gd="git diff"
 alias gst="git status"
+alias gpo="git push --set-upstream origin"
 alias sourcezsh="source $HOME/.zshrc"
 alias curl="curlie"
 
@@ -111,3 +115,7 @@ noproxy () {
   unset all_proxy
   echo "Proxy off"
 }
+
+# other setting
+eval "$(zoxide init zsh)"
+
