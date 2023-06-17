@@ -34,7 +34,6 @@ zinit light Aloxaf/fzf-tab
 export PATH="/usr/local/sbin:$HOME/.local/bin:$HOME/go/bin:/usr/local/opt/node@18/bin:$PATH"
 export EDITOR=nvim
 
-# oh-my-posh
 if [[ `uname` == "Darwin" ]]; then
     # Homebrew config
     export HOMEBREW_NO_AUTO_UPDATE=1
@@ -43,8 +42,6 @@ if [[ `uname` == "Darwin" ]]; then
     export HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api"
     export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.ustc.edu.cn/homebrew-core.git"
     test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
-    # starship config
-    eval "$(starship init zsh)"
     # Java Home
     export JAVA_HOME=$(/usr/libexec/java_home -v1.8)
     export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
@@ -61,10 +58,13 @@ if [[ `uname` == "Darwin" ]]; then
 
     # other config
     export PATH="$PATH:/Applications/IntelliJ IDEA CE.app/Contents/MacOS"
-else
-    eval "$(oh-my-posh init zsh --config $HOME/.poshthemes/powerlevel10k_rainbow.omp.json)"
 fi
 
+# starship config
+eval "$(starship init zsh)"
+
+# No bell: Shut up Zsh
+unsetopt beep
 
 # zsh history config
 export HISTFILE=~/.zsh_history
@@ -116,6 +116,4 @@ noproxy () {
   echo "Proxy off"
 }
 
-# other setting
-eval "$(zoxide init zsh)"
-
+eval "$(atuin init zsh)"
