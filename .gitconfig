@@ -3,6 +3,7 @@
 	email = idwangmo@protonmail.com
 [core]
         editor = nvim
+	autocrlf = input
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f

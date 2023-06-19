@@ -116,4 +116,6 @@ noproxy () {
   echo "Proxy off"
 }
 
+# other config
 eval "$(atuin init zsh)"
+
