@@ -29,6 +29,7 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=
 # fzf config, must be after fast-syntax-highlighting, zsh-autusuggestions, compinit
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 zinit light Aloxaf/fzf-tab
+zinit load ellie/atuin
 
 # common config
 export PATH="/usr/local/sbin:$HOME/.local/bin:$HOME/go/bin:/usr/local/opt/node@18/bin:$PATH"
@@ -116,6 +117,4 @@ noproxy () {
   echo "Proxy off"
 }
 
-# other config
-eval "$(atuin init zsh)"
 
