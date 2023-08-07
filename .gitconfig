@@ -2,7 +2,7 @@
 	name = idwangmo
 	email = idwangmo@protonmail.com
 [core]
-        editor = nvim
+  editor = lvim
 	autocrlf = input
 [filter "lfs"]
 	required = true

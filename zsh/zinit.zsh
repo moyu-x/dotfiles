@@ -33,7 +33,7 @@ zinit load ellie/atuin
 
 # common config
 export PATH="/usr/local/sbin:$HOME/.local/bin:$HOME/go/bin:/usr/local/opt/node@18/bin:$PATH"
-export EDITOR=nvim
+export EDITOR=lvim
 
 if [[ `uname` == "Darwin" ]]; then
     # Homebrew config
@@ -62,7 +62,10 @@ if [[ `uname` == "Darwin" ]]; then
 fi
 
 # starship config
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
+# zinit light spaceship-prompt/spaceship-prompt
+zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
+zinit light sindresorhus/pure
 
 # No bell: Shut up Zsh
 unsetopt beep
@@ -117,4 +120,5 @@ noproxy () {
   echo "Proxy off"
 }
 
+precmd () { echo -n "\x1b]1337;CurrentDir=$(pwd)\x07" }
 
