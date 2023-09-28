@@ -31,9 +31,15 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=
 zinit light Aloxaf/fzf-tab
 zinit load ellie/atuin
 
+
+# jenv config
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
 # common config
-export PATH="/usr/local/sbin:$HOME/.local/bin:$HOME/go/bin:/usr/local/opt/node@18/bin:$PATH"
+export PATH="/usr/local/sbin:$HOME/.local/bin:$HOME/go/bin:$PATH"
 export EDITOR=lvim
+export LANG=en_US.UTF-8
 
 if [[ `uname` == "Darwin" ]]; then
     # Homebrew config
@@ -43,29 +49,16 @@ if [[ `uname` == "Darwin" ]]; then
     export HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api"
     export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.ustc.edu.cn/homebrew-core.git"
     test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
-    # Java Home
-    export JAVA_HOME=$(/usr/libexec/java_home -v1.8)
-    export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
-    export JAVA_11_HOME=$(/usr/libexec/java_home -v11)
-    export JAVA_17_HOME=$(/usr/libexec/java_home -v17)
-
-    alias java8='export JAVA_HOME=$JAVA_8_HOME'
-    alias java11='export JAVA_HOME=$JAVA_11_HOME'
-    alias java17='export JAVA_HOME=$JAVA_17_HOME'
-
     # node config
     export LDFLAGS="-L/usr/local/opt/node@18/lib"
     export CPPFLAGS="-I/usr/local/opt/node@18/include"
-
-    # other config
-    export PATH="$PATH:/Applications/IntelliJ IDEA CE.app/Contents/MacOS"
 fi
 
 # starship config
-# eval "$(starship init zsh)"
+eval "$(starship init zsh)"
 # zinit light spaceship-prompt/spaceship-prompt
-zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
-zinit light sindresorhus/pure
+#zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
+#zinit light sindresorhus/pure
 
 # No bell: Shut up Zsh
 unsetopt beep
@@ -76,12 +69,13 @@ export HISTSIZE=10000
 export SAVEHIST=10000
 
 # alias
-alias zshconfig="nvim ~/.zshrc"
+alias zshconfig="lvim ~/.zshrc"
 alias nvimconfig='nvim ~/.config/nvim/init.vim'
 alias ls="lsd"
 alias vim="nvim"
-alias tid='tid() { ssh-copy-id root@10.0.$1 };tid'
-alias th='th() { trzsz -d ssh root@10.0.$1 };th'
+alias tid='tid() { ssh-keygen -R 10.0.$1 -y && ssh-copy-id root@10.0.$1 };tid'
+alias th='th() { tssh root@10.0.$1 };th'
+alias ssh="tssh"
 alias rsync="rsync -azvhP"
 alias find="fd"
 alias grep="rg"
@@ -92,6 +86,8 @@ alias tree="broot"
 alias ack="ag"
 alias gobl="GOOS=linux  GOARCH=amd64  go build"
 alias mvncp="mvn clean package -DskipTests"
+alias mvndcp="mvnd clean package -DskipTests=true"
+alias mvnd8cp="mvnd clean package -DskipTests=true -Dmaven.compiler.release=8"
 alias gcam="git commit -am"
 alias gc="git checkout"
 alias gcb="git checkout -b"
@@ -119,6 +115,4 @@ noproxy () {
   unset all_proxy
   echo "Proxy off"
 }
-
-precmd () { echo -n "\x1b]1337;CurrentDir=$(pwd)\x07" }
 
