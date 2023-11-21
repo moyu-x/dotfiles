@@ -99,6 +99,7 @@ alias gst="git status"
 alias gpo="git push --set-upstream origin"
 alias sourcezsh="source $HOME/.zshrc"
 alias curl="curlie"
+alias bbdown="BBdown --use-aria2c --aria2c-args=\"--max-download-limit=5M\""
 
 # proxy config
 useproxy () {
