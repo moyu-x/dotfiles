@@ -170,4 +170,6 @@ eval "$(starship init zsh)"
 # common config
 export PATH="/usr/local/sbin:$HOME/.local/bin:$HOME/go/bin:$PATH"
 export EDITOR=lvim
+export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
+
