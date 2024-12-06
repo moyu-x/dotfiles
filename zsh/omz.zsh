@@ -8,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="ys"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -136,6 +136,7 @@ alias gpo="git push --set-upstream origin"
 alias sourcezsh="source $HOME/.zshrc"
 alias curl="curlie"
 alias bbdown="BBdown --use-aria2c --aria2c-args=\"--max-download-limit=5M\""
+alias python="/usr/bin/python3"
 
 # proxy config
 useproxy () {
@@ -157,19 +158,35 @@ noproxy () {
 if [[ `uname` == "Darwin" ]]; then
     # Homebrew config
     export HOMEBREW_NO_AUTO_UPDATE=1
+    export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
+    export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
+    export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
+    export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
+    export HOMEBREW_PIP_INDEX_URL="https://pypi.tuna.tsinghua.edu.cn/simple"
+    export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
 fi
 
 # jenv config
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 
-# other config
-eval "$(atuin init zsh)"
-eval "$(starship init zsh)"
 
 # common config
-export PATH="/usr/local/sbin:$HOME/.local/bin:$HOME/go/bin:$PATH"
+export PATH="/usr/local/sbin:$HOME/.local/bin:$PATH"
 export EDITOR=lvim
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
 
+# other config
+eval "$(atuin init zsh)"
+#eval "$(starship init zsh)"
+fpath+=("$(brew --prefix)/share/zsh/site-functions")
+# eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/powerlevel10k_rainbow.omp.json)"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# g shell setup
+if [ -f "${HOME}/.g/env" ]; then
+    . "${HOME}/.g/env"
+fi
+unalias g
+export PATH="$HOME/go/bin:$PATH"

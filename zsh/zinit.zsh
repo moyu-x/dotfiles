@@ -37,21 +37,20 @@ export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 
 # common config
-export PATH="/usr/local/sbin:$HOME/.local/bin:$HOME/go/bin:$PATH"
+export PATH="/usr/local/sbin:$HOME/.local/bin:$HOME/go/bin:$HOME/.cargo/bin:$PATH"
 export EDITOR=lvim
+export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 if [[ `uname` == "Darwin" ]]; then
     # Homebrew config
-    export HOMEBREW_NO_AUTO_UPDATE=1
-#    export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git"
-#    export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles"
-#    export HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api"
-#    export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.ustc.edu.cn/homebrew-core.git"
+    export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
+    export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
+    export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
+    export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
+    export HOMEBREW_PIP_INDEX_URL="https://pypi.tuna.tsinghua.edu.cn/simple"
+    export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
     test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
-    # node config
-    export LDFLAGS="-L/usr/local/opt/node@18/lib"
-    export CPPFLAGS="-I/usr/local/opt/node@18/include"
 fi
 
 # starship config
@@ -73,9 +72,6 @@ alias zshconfig="lvim ~/.zshrc"
 alias nvimconfig='nvim ~/.config/nvim/init.vim'
 alias ls="lsd"
 alias vim="nvim"
-alias tid='tid() { ssh-keygen -R 10.0.$1 -y && ssh-copy-id root@10.0.$1 };tid'
-alias th='th() { tssh root@10.0.$1 };th'
-alias ssh="tssh"
 alias rsync="rsync -azvhP"
 alias find="fd"
 alias grep="rg"
@@ -88,6 +84,7 @@ alias gobl="GOOS=linux  GOARCH=amd64  go build"
 alias mvncp="mvn clean package -DskipTests"
 alias mvndcp="mvnd clean package -DskipTests=true"
 alias mvnd8cp="mvnd clean package -DskipTests=true -Dmaven.compiler.release=8"
+alias mvnd11cp="mvnd clean package -DskipTests=true -Dmaven.compiler.release=11"
 alias gcam="git commit -am"
 alias gc="git checkout"
 alias gcb="git checkout -b"
@@ -117,3 +114,11 @@ noproxy () {
   echo "Proxy off"
 }
 
+[ -s "${HOME}/.g/env" ] && \. "${HOME}/.g/env"  # g shell setup
+
+eval "$(zoxide init zsh)"
+source <(jj util completion zsh)
+
+
+eval "$(fnm env --use-on-cd --shell zsh)"
+alias gf=gf

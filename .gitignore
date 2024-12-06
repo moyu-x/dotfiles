@@ -9,3 +9,7 @@
 .config/nvim/plugged/
 plug.vim.old
 .config/nvim/pack/
+.config/fish/completions/
+.config/fish/functions/
+.config/fish/conf.d/
+.cargo

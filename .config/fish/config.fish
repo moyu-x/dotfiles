@@ -9,6 +9,7 @@ end
 set -x HOMEBREW_NO_AUTO_UPDATE 1
 
 set -x PATH $HOME/.jenv/bin /usr/local/sbin $HOME/.local/bin $HOME/.cargo/bin $HOME/go/bin $PATH
+set PATH $HOME/.jenv/bin $PATH
 set -x LC_ALL en_US.UTF-8
 set -x LANG zh_CN.UTF-8
 
@@ -42,6 +43,22 @@ alias gst="git status"
 alias gpo="git push --set-upstream origin"
 alias curl="curlie"
 alias bbdown="BBdown --use-aria2c --aria2c-args=\"--max-download-limit=5M\""
+
+# proxy config
+function useproxy
+  export http_proxy="http://127.0.0.1:7890"
+  export https_proxy="http://127.0.0.1:7890"
+  export all_proxy="socks5://127.0.0.1:7890"
+  echo "Proxy on"
+end
+
+# where noproxy
+function noproxy
+  set --erase http_proxy
+  set --erase https_proxy
+  set --erase all_proxy
+  echo "Proxy off"
+end
 
 # jenv config
 status --is-interactive; and jenv init - | source
