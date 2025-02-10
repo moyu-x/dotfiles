@@ -72,7 +72,6 @@ ZSH_THEME="ys"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  fast-syntax-highlighting
   zsh-autosuggestions
   fzf-tab
 )
@@ -101,16 +100,15 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-alias zshconfig="lvim ~/.zshrc"
-alias ohmyzsh="lvim ~/.oh-my-zsh"
+alias zshconfig="nvim ~/.zshrc"
+alias ohmyzsh="nvim ~/.oh-my-zsh"
+alias vim="nvim"
 
 # alias
-alias zshconfig="lvim ~/.zshrc"
+alias zshconfig="nvim ~/.zshrc"
 alias nvimconfig='nvim ~/.config/nvim/init.vim'
 alias ls="lsd"
 alias vim="nvim"
-alias tid='tid() { ssh-keygen -R 10.0.$1 -y && ssh-copy-id root@10.0.$1 };tid'
-alias th='th() { tssh root@10.0.$1 };th'
 alias ssh="tssh"
 alias rsync="rsync -azvhP"
 alias find="fd"
@@ -140,9 +138,9 @@ alias python="/usr/bin/python3"
 
 # proxy config
 useproxy () {
-  export http_proxy="http://127.0.0.1:7890"
-  export https_proxy="http://127.0.0.1:7890"
-  export all_proxy="socks5://127.0.0.1:7890"
+  export http_proxy="http://127.0.0.1:7897"
+  export https_proxy="http://127.0.0.1:7897"
+  export all_proxy="socks5://127.0.0.1:7897"
   echo "Proxy on"
 }
 
@@ -166,27 +164,18 @@ if [[ `uname` == "Darwin" ]]; then
     export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
 fi
 
-# jenv config
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
-
-
 # common config
-export PATH="/usr/local/sbin:$HOME/.local/bin:$PATH"
-export EDITOR=lvim
+export PATH="/usr/local/sbin:$HOME/.local/bin:$HOME/go/bin:$PATH"
+export EDITOR=nvim
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
 
 # other config
 eval "$(atuin init zsh)"
-#eval "$(starship init zsh)"
-fpath+=("$(brew --prefix)/share/zsh/site-functions")
-# eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/powerlevel10k_rainbow.omp.json)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# g shell setup
-if [ -f "${HOME}/.g/env" ]; then
-    . "${HOME}/.g/env"
-fi
-unalias g
-export PATH="$HOME/go/bin:$PATH"
+# asdf setting
+export ASDF_DATA_DIR="$HOME/.asdf"
+export PATH="$ASDF_DATA_DIR/shims:$PATH"
+
+
