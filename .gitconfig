@@ -1,10 +1,6 @@
 [user]
-	name = idwangmo
+	name = moyu-x
 	email = idwangmo@protonmail.com
-[core]
-  editor = lvim
-	autocrlf = input
-	quotepath = false
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f

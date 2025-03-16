@@ -83,7 +83,7 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -93,7 +93,7 @@ source $ZSH/oh-my-zsh.sh
 # fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+export ARCHFLAGS="-arch x86_64"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -138,9 +138,9 @@ alias python="/usr/bin/python3"
 
 # proxy config
 useproxy () {
-  export http_proxy="http://127.0.0.1:7897"
-  export https_proxy="http://127.0.0.1:7897"
-  export all_proxy="socks5://127.0.0.1:7897"
+  export http_proxy="http://$PROXY_HOST"
+  export https_proxy="http://$PROXY_HOST"
+  export all_proxy="socks5://$PROXY_HOST"
   echo "Proxy on"
 }
 
@@ -151,18 +151,6 @@ noproxy () {
   unset all_proxy
   echo "Proxy off"
 }
-
-# mac special config
-if [[ `uname` == "Darwin" ]]; then
-    # Homebrew config
-    export HOMEBREW_NO_AUTO_UPDATE=1
-    export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
-    export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
-    export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
-    export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
-    export HOMEBREW_PIP_INDEX_URL="https://pypi.tuna.tsinghua.edu.cn/simple"
-    export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
-fi
 
 # common config
 export PATH="/usr/local/sbin:$HOME/.local/bin:$HOME/go/bin:$PATH"
