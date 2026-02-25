@@ -31,27 +31,11 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=
 zinit light Aloxaf/fzf-tab
 zinit load ellie/atuin
 
-
-# jenv config
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
-
 # common config
 export PATH="/usr/local/sbin:$HOME/.local/bin:$HOME/go/bin:$HOME/.cargo/bin:$PATH"
-export EDITOR=lvim
+export EDITOR=nvim
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-
-if [[ `uname` == "Darwin" ]]; then
-    # Homebrew config
-    export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
-    export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
-    export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
-    export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
-    export HOMEBREW_PIP_INDEX_URL="https://pypi.tuna.tsinghua.edu.cn/simple"
-    export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
-    test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
-fi
 
 # starship config
 eval "$(starship init zsh)"
@@ -62,13 +46,8 @@ eval "$(starship init zsh)"
 # No bell: Shut up Zsh
 unsetopt beep
 
-# zsh history config
-export HISTFILE=~/.zsh_history
-export HISTSIZE=10000
-export SAVEHIST=10000
-
 # alias
-alias zshconfig="lvim ~/.zshrc"
+alias zshconfig="nvim ~/.zshrc"
 alias nvimconfig='nvim ~/.config/nvim/init.vim'
 alias ls="lsd"
 alias vim="nvim"
@@ -97,28 +76,14 @@ alias gpo="git push --set-upstream origin"
 alias sourcezsh="source $HOME/.zshrc"
 alias curl="curlie"
 alias bbdown="BBdown --use-aria2c --aria2c-args=\"--max-download-limit=5M\""
-
-# proxy config
-useproxy () {
-  export http_proxy="http://127.0.0.1:7890"
-  export https_proxy="http://127.0.0.1:7890"
-  export all_proxy="socks5://127.0.0.1:7890"
-  echo "Proxy on"
-}
-
-# where noproxy
-noproxy () {
-  unset http_proxy
-  unset https_proxy
-  unset all_proxy
-  echo "Proxy off"
-}
-
-[ -s "${HOME}/.g/env" ] && \. "${HOME}/.g/env"  # g shell setup
-
-eval "$(zoxide init zsh)"
-source <(jj util completion zsh)
-
-
-eval "$(fnm env --use-on-cd --shell zsh)"
 alias gf=gf
+
+# bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# mise config
+eval "$(mise activate zsh)"

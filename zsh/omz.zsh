@@ -9,7 +9,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 # ZSH_THEME="ys"
-ZSH_THEME="spaceship"
+ZSH_THEME="ys"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -154,24 +154,15 @@ noproxy () {
 }
 
 # common config
-export PATH="/usr/local/sbin:$HOME/.local/bin:$PATH"
+export PATH="/usr/local/sbin:$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
 export EDITOR=nvim
-export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 # other config
 eval "$(atuin init zsh)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(zoxide init zsh)"
-
-# asdf setting
-export ASDF_DATA_DIR="$HOME/.asdf"
-export PATH="$ASDF_DATA_DIR/shims:$PATH"
-. ~/.asdf/plugins/golang/set-env.zsh
-. ~/.asdf/plugins/java/set-java-home.zsh
-
-
-
-
-
+. "$HOME/.cargo/env"
+eval "$(starship init zsh)"
 
